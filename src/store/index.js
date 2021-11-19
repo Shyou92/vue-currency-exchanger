@@ -5,6 +5,7 @@ const store = createStore({
   state() {
     return {
       currency: null,
+      baseCurrency: 'Рубли',
       arrayFiltered: null,
     };
   },

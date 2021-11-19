@@ -1,11 +1,11 @@
 <template>
   <main>
     <CurrencyList />
-    <!-- <button @click="getStore()">first Click</button> -->
   </main>
 </template>
 
 <script>
+import './vendor/normalize.css';
 import CurrencyList from './views/CurrencyList.vue';
 
 export default {
@@ -21,11 +21,6 @@ export default {
   mounted() {
     this.$store.dispatch('getCurrency');
   },
-  // methods: {
-  //   getStore() {
-  //     console.log(this.$store.state.currency);
-  //   },
-  // },
 };
 </script>
 
