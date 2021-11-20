@@ -1,11 +1,5 @@
 <template>
   <section class="currencyContainer">
-    <transition appear name="fade" tag="h2">
-      <h2 class="base-currency">
-        Базовая валюта: {{ this.$store.state.baseCurrency }}
-      </h2>
-    </transition>
-
     <ul class="currency-list">
       <transition-group name="list" tag="ul">
         <li v-for="currency in filteredCurrencyList" :key="currency[0]">
@@ -38,18 +32,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.base-currency {
-  text-align: center;
-}
-
-.currency-list ul {
+.currency-list,
+ul {
   list-style-type: none;
   padding: 0;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 2.5s ease;
+  transition: opacity 5.5s ease;
 }
 
 .fade-enter-from,
@@ -59,7 +50,7 @@ export default {
 
 .list-enter-active,
 .list-leave-active {
-  transition: all 1s ease;
+  transition: all 3s ease;
 }
 .list-enter-from,
 .list-leave-to {

@@ -4,9 +4,11 @@ import axios from 'axios';
 const store = createStore({
   state() {
     return {
-      currency: null,
+      currency: [],
       baseCurrency: 'Рубли',
       arrayFiltered: null,
+      checkboxOptions: null,
+      selectedValute: '',
     };
   },
   mutations: {
@@ -28,9 +30,25 @@ const store = createStore({
       }
       const currencyArray = Object.entries(state.currency.Valute);
       const arrayFiltered = currencyArray.filter((item) => {
-        return item[0] === 'USD' || item[0] === 'EUR' || item[0] === 'GBP';
+        return (
+          item[0] === 'USD' ||
+          item[0] === 'EUR' ||
+          item[0] === 'GBP' ||
+          item[0] === 'CAD'
+        );
       });
       return (state.arrayFiltered = arrayFiltered);
+    },
+    getCheckboxOptions(state) {
+      const checkboxOptions = [];
+      const currencyListToArray = Object.entries(state.currency);
+      const currencyNameArray = currencyListToArray.filter((item) => {
+        console.log(item.Valute);
+        return item.Valute;
+      });
+      checkboxOptions.push('RUR', ...currencyNameArray);
+      console.log(checkboxOptions);
+      return (state.checkboxOptions = checkboxOptions);
     },
   },
 });
